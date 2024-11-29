@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShareNote</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu-button">
+            <a id="menuOpen"><i class="bi bi-list"></i></a>
+        </div>
+        <div class="menu-container" id="menuContainer">
+            <div class="menu-list">
+                <a id="menuClose"><i class="bi bi-list"></i>&nbsp;&nbsp;&nbsp;메뉴</a>
+                <a id="removeAll"><i class="bi bi-x"></i>&nbsp;&nbsp;&nbsp;전체 삭제</a>
+                <a id="logoutButton"><i class="bi bi-door-closed menu-logout"></i>&nbsp;&nbsp;&nbsp;로그아웃</a>
+            </div>
+            <div class="menu-contact">
+                <a href="mailto:admin@shilvister.net?Subject=[ShareNote 문의]" id="mailMe"><i class="bi bi-person-lines-fill"></i>&nbsp;&nbsp;&nbsp;Contact Me</a>
+            </div>
+        </div>
+        <div id="menuBackground"></div>
+        <div class="logo-container">
+            <a><img class="logo" src="logo.png" /></a>
+        </div>
+        <div class="bar-container">
+            <textarea class="bar-text" id="barText" placeholder="내용을 입력해 주세요."></textarea>
+            <img class="add-button" id="addNote" src="addnote.png" />
+        </div>
+        
+        <div class="sticky-notes-container" id="notesContainer"></div>
+
+        <div class="floating-button" id="floatingButton">
+            <i class="bi bi-clipboard-plus float-icon"></i>
+        </div>
+
+        <div class="notification-banner" id="notificationBanner"></div>
+        <div class="alert-banner" id="alertBanner"></div>
+
+        <div class="popup-container fade-in" id="popupContainer">
+            <div class="popup">
+                <div class="popup-content">
+                    <p class="desktop-content">URL이 감지되었습니다. 이 링크를 여시겠습니까?</p>
+                    <p class="mobile-content">URL이 감지되었습니다.<br>이 링크를 여시겠습니까?</p>
+                </div>
+                <div class="popup-ok" id="okPopup">
+                    <span class="popup-button confirm" id="confirmPopup">열기</span>
+                    <span class="popup-button close" id="closePopup">텍스트만 복사</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

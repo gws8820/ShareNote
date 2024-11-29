@@ -1,0 +1,359 @@
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container {
+    margin-top: 150px;
+}
+
+/* Logo */
+.logo {
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+    -webkit-user-drag: none;
+}
+
+/* PIN container */
+.pin-container {
+    display: block;
+    margin: 0 auto;
+    margin-top: 18px;
+    width: 375px;
+    border-radius: 25px;
+    border:1px solid #dcdcdc;
+}
+
+.pin-container:hover {
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+}
+
+.pin-value {
+    height: 45px;
+    width: 300px;
+    position: relative;
+    left: 25px;
+    padding-bottom: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    outline: none;
+    -webkit-text-security: disc;
+}
+
+.tutorial-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);  
+    backdrop-filter: blur(5px); 
+}
+
+.tutorial-images-container {
+    width: 500px;
+}
+
+.tutorial-images {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.tutorial-images::-webkit-scrollbar {
+    height: 10px;
+}
+
+.tutorial-images::-webkit-scrollbar-thumb {
+    background: #707070;
+    border-radius: 10px;
+}
+
+.tutorial-container img {
+    scroll-snap-align: start;
+    width: 100%;
+    margin-right: 50px;
+    border-radius: 10px;
+}
+
+.left-button {
+    position: absolute;
+    left: 40px;
+    font-size: 40px;
+    cursor: pointer; 
+}
+
+.left-button:hover{
+    color: white;
+}
+
+.right-button {
+    position: absolute;
+    right: 40px;
+    font-size: 40px;
+    cursor: pointer; 
+}
+
+.right-button:hover{
+    color: white;
+}
+
+.close-button {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    font-size: 50px;
+    cursor: pointer; 
+}
+
+.close-button:hover{
+    color: white;
+}
+
+.login-button {
+    height: 25px;
+    position: relative;
+    float: right;
+    top: 10px;
+    right: 12px;
+    cursor: pointer;
+}
+
+.floating-button {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    bottom: 30px;
+	right: 30px;
+    width: 60px;
+	height: 60px;
+	background-color: #0C9;
+   	color: #FFF;
+    font-size: 35px;
+	border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.floating-button:hover {
+    box-shadow: 1px 1px 8px 1px #858585;
+}
+
+.float-icon {
+    margin-left:1px;
+    margin-bottom: 7px;
+}
+
+.alert-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 2;
+    background-color: #ff4242; /* Red color */
+    color: white;
+    text-align: center;
+    display: none;
+    animation: slide-down-up 2s ease-in-out; /* Add animation */
+}
+
+.popup-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);  
+    backdrop-filter: blur(5px); 
+}
+
+.popup {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-title {
+    display: flex;
+    margin-left: 18px;
+    margin-top: 2px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.popup-content {
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    padding-top: 25px;
+    word-break: keep-all;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.popup-confirm {
+    display: flex;
+    float: right;
+    margin-right: 5px;
+    padding: 13px;
+}
+
+.popup-button{
+    background-color: #6E757C;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fade-in 0.2s ease-in forwards;
+}
+
+.fade-out {
+    opacity: 1;
+    animation: fade-out 0.2s ease-in forwards;
+}
+
+/* Mobile Layout */
+@media (max-width: 992px) {
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: calc(var(--vh, 1vh) * 100);
+        margin-top: -19px;
+    }
+
+    .logo {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .pin-container {
+        position: relative;
+        width: 82%;
+        border-radius: 60px;
+        border: 2px solid #dcdcdc;
+    }
+
+    .pin-value {
+        height: 50px;
+        width: 70%;
+        font-size: 18px;
+    }
+
+    .login-button {
+        height: 30px;
+    }
+
+    .tutorial-images-container {
+        max-width: 90%;
+    }
+    
+    .left-button {
+        left: 15px;
+    }
+    
+    .left-button:hover{
+        color: black;
+    }
+
+    .right-button {
+        right: 15px;
+    }
+
+    .right-button:hover{
+        color: black;
+    }
+
+    .close-button {
+        top: 10px;
+        right: 15px;
+    }
+
+    .alert-banner {
+        font-size: 20px;
+    }
+
+    .popup {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 992px) and (min-aspect-ratio: 2/3) {
+    .tutorial-images-container {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 992px) and (min-aspect-ratio: 1/1) {
+    .tutorial-images-container {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 992px) and (min-aspect-ratio: 5/4) {
+    .tutorial-images-container {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 992px) and (min-aspect-ratio: 8/5) {
+    .tutorial-images-container {
+        max-width: 30%;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slide-down-up {
+    0% {
+        transform: translateY(-100%);
+    }
+    15%, 85% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
