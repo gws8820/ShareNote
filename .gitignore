@@ -1,2 +1,4 @@
 .env
+.DS_Store
 server_log.txt
+blacklist.txt
