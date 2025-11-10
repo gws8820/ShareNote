@@ -19,11 +19,19 @@
 </head>
 
 <body>
-    <div class="container">
-        <a><img class="logo" src="logo.png" /></a>
-        <div class="pin-container">
-            <input class="pin-value" id="pinvalue" type="number"  min="0" inputmode="numeric" pattern="[0-9]*" placeholder="PIN을 입력해 주세요." required>
-            <a><img class="login-button" id="login" src="login.png" /></a>
+    <div class="main-container">
+        <div class="content-container">
+            <div class="logo-container">
+                <img class="logo" src="logo.png" />
+            </div>
+            <div class="pin-container">
+                <div class="pin-box">
+                    <input class="pin-value" id="pinvalue" type="number"  min="0" inputmode="numeric" pattern="[0-9]*" placeholder="PIN을 입력해 주세요." required>
+                    <div class="login-button-container">
+                        <img class="login-button" id="login" src="login.png" />
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="tutorial-container fade-in" id="tutorialContainer">

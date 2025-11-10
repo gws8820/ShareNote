@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="main-container">
         <div class="menu-button">
             <a id="menuOpen"><i class="bi bi-list"></i></a>
         </div>
@@ -28,12 +28,18 @@
             </div>
         </div>
         <div id="menuBackground"></div>
-        <div class="logo-container">
-            <a><img class="logo" src="logo.png" /></a>
-        </div>
-        <div class="bar-container">
-            <textarea class="bar-text" id="barText" placeholder="내용을 입력해 주세요."></textarea>
-            <img class="add-button" id="addNote" src="addnote.png" />
+        <div class="content-container">
+            <div class="logo-container">
+                <img class="logo" src="logo.png" />
+            </div>
+            <div class="new-note-container">
+                <div class="new-note-box">
+                    <textarea class="note-text" id="noteText" placeholder="내용을 입력해 주세요."></textarea>
+                    <div class="add-button-container">
+                        <img class="add-button" id="addNote" src="addnote.png" />
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="sticky-notes-container" id="notesContainer"></div>

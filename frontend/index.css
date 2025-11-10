@@ -2,44 +2,70 @@
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.container {
+.main-container {
     margin-top: 150px;
 }
 
-/* Logo */
-.logo {
-    width: 400px;
-    display: block;
+.content-container {
     margin: 0 auto;
-    -webkit-user-drag: none;
+    max-width: 400px;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 
 /* PIN container */
 .pin-container {
-    display: block;
-    margin: 0 auto;
-    margin-top: 18px;
-    width: 375px;
-    border-radius: 25px;
-    border:1px solid #dcdcdc;
+    margin-bottom: 80px;
 }
 
-.pin-container:hover {
-    box-shadow: 1px 1px 8px 1px #dcdcdc;
+.pin-box {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 25px;
+    border: 2px solid #dcdcdc;
 }
 
 .pin-value {
-    height: 45px;
-    width: 300px;
-    position: relative;
-    left: 25px;
-    padding-bottom: 4px;
+    width: 100%;
+    padding: 8px 20px;
     font-size: 18px;
     font-weight: bold;
-    display: inline-block;
+    box-sizing: border-box;
+    background-color: transparent;
     border: none;
     outline: none;
     -webkit-text-security: disc;
+}
+
+.pin-value::-webkit-outer-spin-button,
+.pin-value::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.login-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+}
+
+.login-button {
+    height: 25px;
+    cursor: pointer;
 }
 
 .tutorial-container {
@@ -114,15 +140,6 @@
 
 .close-button:hover{
     color: white;
-}
-
-.login-button {
-    height: 25px;
-    position: relative;
-    float: right;
-    top: 10px;
-    right: 12px;
-    cursor: pointer;
 }
 
 .floating-button {
@@ -238,37 +255,19 @@
 
 /* Mobile Layout */
 @media (max-width: 992px) {
-    .container {
+    .main-container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: calc(var(--vh, 1vh) * 100);
-        margin-top: -19px;
+        height: 100dvh;
+        margin-top: 0;
     }
 
-    .logo {
+    .content-container {
         width: 90%;
-        margin: 0 auto;
     }
-
-    .pin-container {
-        position: relative;
-        width: 82%;
-        border-radius: 60px;
-        border: 2px solid #dcdcdc;
-    }
-
-    .pin-value {
-        height: 50px;
-        width: 70%;
-        font-size: 18px;
-    }
-
-    .login-button {
-        height: 30px;
-    }
-
+    
     .tutorial-images-container {
         max-width: 90%;
     }
@@ -303,29 +302,6 @@
     }
 }
 
-@media (max-width: 992px) and (min-aspect-ratio: 2/3) {
-    .tutorial-images-container {
-        max-width: 60%;
-    }
-}
-
-@media (max-width: 992px) and (min-aspect-ratio: 1/1) {
-    .tutorial-images-container {
-        max-width: 50%;
-    }
-}
-
-@media (max-width: 992px) and (min-aspect-ratio: 5/4) {
-    .tutorial-images-container {
-        max-width: 40%;
-    }
-}
-
-@media (max-width: 992px) and (min-aspect-ratio: 8/5) {
-    .tutorial-images-container {
-        max-width: 30%;
-    }
-}
 
 @keyframes fade-in {
     from {

@@ -25,15 +25,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const addNoteButton = document.getElementById("addNote");
     addNoteButton.addEventListener("click", function() {
-        const note = barText.value.trim();
+        const note = noteText.value.trim();
             addNote(note);
     });
 
-    const barText = document.getElementById("barText");
-    barText.addEventListener("keydown", function(event) {
-        if (event.key === "Enter" && !event.shiftKey) {
+    const noteText = document.getElementById("noteText");
+    
+    function autoResize() {
+        noteText.style.height = 'auto';
+        noteText.style.height = Math.min(noteText.scrollHeight, 400) + 'px';
+        if (noteText.scrollHeight > 240) {
+            noteText.style.overflowY = 'auto';
+        } else {
+            noteText.style.overflowY = 'hidden';
+        }
+    }
+    
+    noteText.addEventListener("input", autoResize);
+    
+    noteText.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
             event.preventDefault();
-            const note = barText.value;
+            const note = noteText.value;
             addNote(note);
         }
     });
@@ -133,7 +146,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 showAlert("내용이 너무 길어 저장할 수 없습니다.");
             } 
             else {
-                barText.value = "";
+                noteText.value = "";
+                noteText.style.height = '64px';
                 const noteElement = displayNote(note);
                 const response = await sendNoteToServer(storedPinvalue, note);
                 noteElement.setAttribute("note-id", response.noteId);
@@ -251,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function login(pinvalue) {
-        const url = 'https://node.sharenote.kr/login';
+        const url = 'https://api.sharenote.kr/login';
     
         try {
             const response = await fetch(url, {
@@ -300,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function sendNoteToServer(pinvalue, note) {
-        const url = 'https://node.sharenote.kr/add-note';
+        const url = 'https://api.sharenote.kr/add-note';
     
         try {
             const response = await fetch(url, {
@@ -340,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     async function RemoveNoteFromServer(noteId) {
         try {
-            const url = 'https://node.sharenote.kr/remove-note';
+            const url = 'https://api.sharenote.kr/remove-note';
     
             const response = await fetch(url, {
                 method: 'POST',
@@ -380,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function removeAllNotes(pinvalue) {
         const currentTime = Date.now();
         
-        const url = 'https://node.sharenote.kr/remove-all-notes';
+        const url = 'https://api.sharenote.kr/remove-all-notes';
         fetch(url, {
             method: 'POST',
             headers: {

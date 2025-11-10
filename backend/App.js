@@ -102,7 +102,7 @@ function cleanupTimestampTable() {
 }
 
 app.use(express.json());
-app.use(cors({ origin: 'https://sharenote.kr' }));
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 app.use((err, req, res, next) => {
     console.error('Unhandled Error:', err);
