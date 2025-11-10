@@ -1,4 +1,5 @@
 .DS_Store
 .env
+backend/node_modules
 server_log.txt
 blacklist.txt
